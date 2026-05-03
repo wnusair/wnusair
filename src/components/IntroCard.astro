@@ -1,0 +1,116 @@
+---
+import Card from "./Card/index.astro";
+import Button from "./Button.astro";
+import { LINKS } from "../lib/constants";
+import { Icon } from "astro-icon/components";
+import Tooltip from "./Tooltip/index";
+import { Image } from "astro:assets";
+import { SITE } from "../site-config";
+import AvatarImage from "../assets/wissam.jpg";
+---
+
+<Card colSpan="md:col-span-3" rowSpan="md:row-span-4">
+  <div class="flex w-full h-full">
+    <div class="flex flex-col justify-between md:max-h-[300px] gap-4">
+      <div class="flex flex-col h-full">
+        <h6 class="text-sm font-light m-0 text-darkslate-300">welcome</h6>
+
+        <p class="sr-only">
+          Hi, I'm {SITE.author.fullName}, an ambitious software developer and high school student passionate about AI, full-stack web development, and data science. Feel
+          free to reach out to me if you have any project in mind, want to
+          collaborate, or just want to say hello.
+        </p>
+        <p aria-hidden="true" class="m-0 font-light text-md">
+          <span>
+            Hi, I'm <b class="font-bold">{SITE.author.fullName}</b>, an ambitious software
+            developer and high school student passionate about AI, full-stack
+            web development, and data science.
+          </span>
+          <br />
+          <span class="block mt-2">
+            Feel free to reach out to me if you have any project in mind, want
+            to collaborate, or just want to say hello.
+          </span>
+        </p>
+      </div>
+      <div class="flex flex-col lg:flex-row gap-2 lg:gap-4">
+        <div class="flex gap-2 lg:gap-4">
+          <a href={LINKS.github} aria-label="github profile" target="_blank">
+            <Button aria-label="github profile">
+              <Icon name="ri:github-fill" />
+              <span class="sr-only" data-umami-event="github button"
+                >GitHub Profile</span
+              >
+            </Button>
+          </a>
+          <a
+            href={LINKS.linkedin}
+            aria-label="linkedin profile"
+            target="_blank"
+          >
+            <Button aria-label="linkedin profile">
+              <Icon name="ri:linkedin-box-fill" />
+              <span class="sr-only" data-umami-event="linkedin button"
+                >Linkedin Profile</span
+              >
+            </Button>
+          </a>
+
+          <Tooltip client:visible>
+            <Button aria-label="easter egg btn">
+              <Icon name="ri:emotion-laugh-line" />
+              <span class="sr-only" data-umami-event="Easter egg button"
+                >Easter egg button</span
+              >
+            </Button>
+          </Tooltip>
+        </div>
+
+        <a href="/resume" aria-label="download resume">
+          <Button aria-label="download resume">
+            <span class="font-bold whitespace-nowrap">Download Wissam's Resume</span>
+          </Button>
+        </a>
+      </div>
+    </div>
+    <div
+      id="memoji-avatar"
+      class="w-auto shrink-0 max-h-[300px] aspect-[1213/910] rounded-full overflow-hidden select-none absolute right-0 bottom-[-20px] z-[-1] opacity-50 md:opacity-100 md:relative md:right-auto md:bottom-auto md:z-auto pointer-events-none"
+    >
+      <Image
+        quality="max"
+        src={AvatarImage}
+        class="w-full h-full object-cover scale-[1.3] translate-x-[-10%] translate-y-[5%]"
+        alt={`picture of ${SITE.author.firstName}`}
+        loading="eager"
+      />
+    </div>
+  </div>
+</Card>
+
+<script>
+  import { animate } from "motion";
+
+  function initLevitatingAnimation() {
+    const avatarImg = document.getElementById("memoji-avatar") as HTMLElement;
+    if (!avatarImg) return;
+
+    animate(
+      avatarImg,
+      { y: [-10, 10, -10] },
+      {
+        duration: 3,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }
+    );
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      initLevitatingAnimation();
+    });
+  } else {
+    initLevitatingAnimation();
+  }
+</script>

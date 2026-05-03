@@ -1,0 +1,73 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/Card/index.astro";
+import { SITE } from "../../site-config";
+
+const projects = [
+  {
+    title: "Tandem",
+    description: "Leading a team to build an application that distributes computation rather than relying on centralized data centers. Partnering with Miami University and 5/3rd Bank.",
+    url: "https://github.com/wnusair/Tandem",
+  },
+  {
+    title: "Mason SND",
+    description: "A platform to manage Speech and Debate tournaments. Features role-based access, automated roster generation, points tracking, and custom sign-up forms.",
+    url: "https://github.com/wnusair/mason-snd",
+  },
+  {
+    title: "PoorUp",
+    description: "A Monopoly spinoff that introduces real-world mechanics like lobbying, economic stability, government treasury, welfare, and labor action.",
+    url: "https://github.com/wnusair/PoorUp",
+  },
+  {
+    title: "Miami MTI",
+    description: "A web app that receives live telemetry data from robot machinery in an assembly line, saving Miami University significant time and contractor costs.",
+    url: "https://github.com/wnusair/miami-MTI",
+  },
+  {
+    title: "Mason Model UN",
+    description: "A customizable website for the Mason High School MUN team to host their conference, allowing non-technical users to edit content and pages easily.",
+    url: "https://github.com/wnusair/mason-mun",
+  },
+];
+---
+
+<script>
+  import { animate, type AnimationSequence } from "motion";
+  import { loaderAnimation } from "../../lib/constants";
+
+  animate([loaderAnimation] as AnimationSequence);
+</script>
+
+<Layout
+  title={`${SITE.author.fullName} - Projects`}
+  description="A collection of my recent projects and creative explorations."
+>
+  <main
+    class="w-screen h-screen flex flex-col justify-start items-start max-w-3xl mx-auto p-8 text-white"
+  >
+    <a
+      href="/"
+      class="text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 mb-8 border-1 border-solid border-neutral-600 rounded-lg"
+      >Back</a
+    >
+    <h1 class="text-4xl font-bold mb-4 text-neutral-100">Projects</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+      {
+        projects.map((project) => (
+          <Card
+            href={project.url}
+            target="_blank"
+            height="h-auto"
+            colSpan="md:col-span-1"
+          >
+            <div class="text-darkslate-50">
+              <h2 class="font-semibold text-2xl">{project.title}</h2>
+              <p class="text-darkslate-300">{project.description}</p>
+            </div>
+          </Card>
+        ))
+      }
+    </div>
+  </main>
+</Layout>

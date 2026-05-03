@@ -1,0 +1,32 @@
+---
+import Card from "./Card/index.astro";
+import { SITE } from "../site-config";
+---
+
+<Card colSpan="md:col-span-1" rowSpan="md:row-span-6" title="Interests">
+  <div class="flex flex-col gap-2">
+    <p class="sr-only">
+      Beyond coding, I'm passionate about reading, writing, competing in hackathons, and teaching others. 
+      I love participating in competitive speech and debate, and finding real-world problems to solve.
+      My interests include AI & Machine Learning, Data Analytics, Full-Stack Web Development, and Leadership.
+    </p>
+    <div aria-hidden="true" class="text-sm font-light">
+      <p class="text-sm font-light">
+        Beyond coding, I'm passionate about leading tech initiatives, competing in hackathons, and teaching others.
+      </p>
+      <br />
+      Some of my core interests include:
+      <ul class="list-disc list-inside">
+        <li>AI & Machine Learning</li>
+        <li>Data Science</li>
+        <li>Database Engineering</li>
+        <li>Full-Stack Web Development</li>
+        <li>Competitive Hackathons</li>
+        <li>Speech and Debate</li>
+      </ul>
+      <p class="text-sm font-light mt-2">
+        I love participating in competitions and finding real-world problems to solve.
+      </p>
+    </div>
+  </div>
+</Card>
