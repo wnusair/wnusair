@@ -78,5 +78,8 @@ export default defineConfig({
   adapter: netlify({ middlewareMode: "edge" }),
   vite: {
     assetsInclude: "**/*.riv",
+    server: {
+      allowedHosts: ["wnusair.org"],
+    },
   },
 });
