@@ -6,15 +6,24 @@ import { Icon } from "astro-icon/components";
 const experiences = [
   {
     role: "Internship",
+    company: "5/3rd Bank Corporation",
+    location: "Cincinnati, Ohio, United States",
+    date: "June 2026 - August 2026",
+    points: [
+      "Engineered RAG Architecture allowing employees to talk to hundreds of files stored in S3 Buckets",
+      "Deployed LLM Evaluation Software into Autonomous call-center agent",
+      "Developed tool allowing developers to prompt Confluence pages (documentation) via RAG in ECS instance"
+    ]
+  },
+  {
+    role: "Internship",
     company: "Procter and Gamble",
     location: "Cincinnati, Ohio, United States",
-    date: "June 2025 - Present",
+    date: "June 2025 - August 2025",
     points: [
-      "Automated data cleaning, transfer, and visualization process with SAP and ABAP",
-      "Partnered with P&G manager and MIT Undergraduate",
-      "Project outcome: saved $144,000 and 4,800 labor hours",
-      "Presented project to executives, staff, and interns",
-      "Participated in Q&A meeting with CIO and president"
+      "Automated data cleaning, transfer, and visualization process with SAP and ABAP, partnered with MIT Undergraduate",
+      "— Saved $144,000 and 4,800 labor hours",
+      "Developed internal library to offload heavy computations to supercomputers in Python CloudPickle"
     ]
   },
   {
@@ -23,9 +32,9 @@ const experiences = [
     location: "Hamilton, Ohio, United States",
     date: "September 2025 - Present",
     points: [
-      "Working with research team to create AI models using Python, Tensorflow, Pytorch",
-      "Correcting depth and distance calculations in LiDAR cameras",
-      "Goal is to publish in Sensor MDPI Journal or Journal of Intelligent Manufacturing"
+      "Developed ML models to correct depth calculations in LiDAR by ~18% using Tensorflow and Pytorch",
+      "Beat $250,000 contractor to develop a telemetry hub for advanced manufacturing machinery",
+      "Early-stage SAAS development of central HUB for manufacturing machinery"
     ]
   },
   {
@@ -36,51 +45,17 @@ const experiences = [
     points: [
       "Lead Web developer; develop the INTERalliance and TechOlympics website, thousands of weekly visitors",
       "Manage the IT infrastructure of TechOlympics, the nation's largest student IT conference",
-      "Partnered with 20+ Board members from top Ohio universities and Fortune 500 companies",
-      "Attend weekly meetings"
-    ]
-  },
-  {
-    role: "Developer",
-    company: "OpenFront.io",
-    location: "",
-    date: "Grade 12",
-    points: [
-      "Developed two UI and design features in a global team of 211 developers, testors, and translators in TypeScript",
-      "Over 6 million monthly players"
+      "Partnered with 20+ Board members from top Ohio universities and Fortune 500 companies"
     ]
   },
   {
     role: "Co-President",
-    company: "MHS Hack Club",
+    company: "Hack Club",
     location: "",
     date: "Grade 9 - 12",
     points: [
-      "Tutoring over 30 members advanced Python, weekly competitions",
-      "Raising $2,500+ for the annual hackathon with 83 competitors",
-      "Rebuilt the club and grew membership/engagement by 6x after appointed as the junior leader"
-    ]
-  },
-  {
-    role: "Metrics Chair",
-    company: "Speech and Debate",
-    location: "",
-    date: "Grade 9 - 12",
-    points: [
-      "Developed a data analysis platform that manages and tracks the metrics of 250+ students",
-      "Competed in Lincoln-Douglas debate (one of the hardest events), achieving top 14 state qualifier finish across 20+ tournaments",
-      "Engaged in four years of debate, refining critical thinking and persuasive speaking skills through structured argumentation"
-    ]
-  },
-  {
-    role: "Cashier",
-    company: "Raising Cane's",
-    location: "",
-    date: "Grade 10 - 11",
-    points: [
-      "Worked 10-15 hours per week as a cashier",
-      "Developed impeccable communication skills to ensure customer satisfaction",
-      "Maintained calm and professional composure during the most stressful situations"
+      "Grew the club by 6x, personally tutored 30 students in intermediate Python and SQL",
+      "Raising $2,500+ for the annual hackathon with 83 competitors"
     ]
   }
 ];
@@ -107,8 +82,8 @@ const experiences = [
         {experiences.map((exp, index) => (
           <div class="relative">
             <div class={`absolute -left-[33px] sm:-left-[41px] top-1.5 h-4 w-4 rounded-full border-2 border-darkslate-900 ${index === 0 ? 'bg-primary-500' : 'bg-darkslate-300'}`}></div>
-            <h3 class="text-xl font-bold text-white">{exp.role}</h3>
-            <p class="text-sm text-primary-400 font-semibold">{exp.company} <span class="text-darkslate-300 font-normal">&bull; {exp.date}</span></p>
+            <h3 class="text-xl font-bold text-white">{exp.company}</h3>
+            <p class="text-sm text-primary-400 font-semibold">{exp.role} <span class="text-darkslate-300 font-normal">&bull; {exp.date}</span></p>
             {exp.location && <p class="text-xs text-darkslate-300 mt-0.5">{exp.location}</p>}
             <ul class="mt-3 text-gray-300 font-light list-disc ml-4 space-y-1">
               {exp.points.map(point => (

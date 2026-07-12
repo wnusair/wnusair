@@ -15,7 +15,7 @@ function Tooltip(props: Props) {
     "Who are you?",
     "So cool!",
     "Im a college student,",
-    "At Miami University, Full Ride!",
+    "At Miami University!",
     "I'm Studying CS & Electrical Engineering.",
     "I have intern experience,",
     "and project mangement expereince!",
